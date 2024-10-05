@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <center>
+        <hr>
+        <h1>Add Data</h1>
+        <hr><br><br>
+
+        <form action="/insert" method="post">
+            <input type="text" placeholder="Enter Username" name="username"><br>
+            <input type="text" placeholder="Enter Email" name="email"><br><br>
+            <input type="submit">
+        </form>
+        <br><br><hr>
+
+        <h1>Display Data</h1>
+        <hr><br><br>
+
+        <table border="10" width="40%">
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th colspan="2" >Action</th>
+            </tr>
+
+            <% data.map(e => { %>
+                <tr>
+                    <td>
+                        <center>
+                            <%= e.username %>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <%= e.email %>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a href="/deleteData?id=<%= e.id %>">
+                                <button>Delete</button>
+                            </a>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a href="">
+                                <button>Edit</button>
+                            </a>
+                        </center>
+                    </td>
+                </tr>
+            <% }) %>
+
+        </table>
+    </center>
+    
+</body>
+</html>
